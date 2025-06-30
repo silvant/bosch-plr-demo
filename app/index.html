@@ -63,7 +63,7 @@
     </div>
     <h1>GLM 50-27C demo</h1>
     <p>
-      This demo uses the Bosch >GLM 50-27C. Other Bosch laser range finders might
+      This demo uses the Bosch GLM 50-27C. Other Bosch laser range finders might
       work as well but aren't tested.
     </p>
     <p>Check console for logs.</p>
@@ -134,7 +134,7 @@
 
               // get primary service and then the characteristic
               return bluetoothGattServer
-                .getPrimaryService()
+                .getPrimaryService(glmServiceUuid)
                 .then((s) => {
                   service = s;
                   return s.getCharacteristic(characteristicUuid);
