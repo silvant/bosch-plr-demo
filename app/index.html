@@ -61,9 +61,9 @@
       <i>Navigator: bluetooth</i> is not supported in your browser. Currently,
       it is only supported in Chrome and Edge.
     </div>
-    <h1>PLR 50C demo</h1>
+    <h1>GLM 50-27C demo</h1>
     <p>
-      This demo uses the Bosch PLR 50C. Other Bosch laser range finders might
+      This demo uses the Bosch >GLM 50-27C. Other Bosch laser range finders might
       work as well but aren't tested.
     </p>
     <p>Check console for logs.</p>
@@ -109,10 +109,10 @@
         .getElementById("connect-btn")
         .addEventListener("click", function (event) {
           // primary service UUID
-          const glmServiceUuid = "00005301-0000-0041-5253-534f46540000";
-          const characteristicUuid = "00004301-0000-0041-5253-534f46540000";
+          const glmServiceUuid = "02a6c0d0-0451-4000-b000-fb3210111989";
+          const characteristicUuid = "02a6c0d1-0451-4000-b000-fb3210111989";
 
-          // filters used to filter out devices that are not Bosch PLR devices
+          // filters used to filter out devices that are not Bosch GLM devices
           const filters = [
             { services: [glmServiceUuid] },
           ];
@@ -134,7 +134,7 @@
 
               // get primary service and then the characteristic
               return bluetoothGattServer
-                .getPrimaryService(glmServiceUuid)
+                .getPrimaryService()
                 .then((s) => {
                   service = s;
                   return s.getCharacteristic(characteristicUuid);
